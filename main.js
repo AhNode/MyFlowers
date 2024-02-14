@@ -7,7 +7,7 @@ document.getElementById('feedbackForm').addEventListener('submit', function (eve
     fetch('https://api.github.com/repos/AhNode/MyFlowers/contents/feedback.txt', {
         method: 'GET',
         headers: {
-            'Authorization': 'Bearer <YOUR_GITHUB_TOKEN>'
+            'Authorization': 'Bearer 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'
         }
     })
     .then(response => response.json())

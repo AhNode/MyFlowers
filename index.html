@@ -4,22 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofolio</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header>
+        <div class="container">
+            <h1>Portofolio</h1>
+        </div>
+    </header>
 
-    <h1>Portofolio Saya</h1>
+    <main class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Welcome to my portfolio. I am passionate about...</p>
+        </section>
 
-    <form id="feedbackForm">
-        <label for="name">Nama:</label>
-        <input type="text" id="name" name="name" required>
+        <section id="projects">
+            <h2>Projects</h2>
+            <!-- Include project details here -->
+        </section>
 
-        <label for="message">Pesan:</label>
-        <textarea id="message" name="message" required></textarea>
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <form id="messageForm">
+                <label for="message">Send a Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </main>
 
-        <button type="submit">Kirim Pesan</button>
-    </form>
-
-    <script src="main.js"></script>
-
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Your Name</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>

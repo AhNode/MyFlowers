@@ -13,6 +13,7 @@ document.getElementById('feedbackForm').addEventListener('submit', function (eve
     .then(response => response.json())
     .then(data => {
         // Mendapatkan konten file feedback.txt
+        console.log(data)
         const content = atob(data.content);
 
         // Menambahkan data formulir ke dalam konten

@@ -4,7 +4,7 @@ document.getElementById('feedbackForm').addEventListener('submit', function (eve
     const formData = new FormData(event.target);
 
     // Menggunakan GitHub API untuk membuat commit dengan data formulir
-    fetch('https://api.github.com/repos/AhNode/MyFlowers/contents/feedback.txt', {
+    fetch('https://api.github.com/AhNode/MyFlowers/contents/feedback.txt', {
         method: 'GET',
         headers: {
             'Authorization': 'Bearer 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'

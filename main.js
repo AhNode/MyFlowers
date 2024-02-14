@@ -1,47 +1,28 @@
-document.getElementById('feedbackForm').addEventListener('submit', function (event) {
-    event.preventDefault();
+document.addEventListener('DOMContentLoaded', function () {
+    const messageForm = document.getElementById('messageForm');
 
-    const formData = new FormData(event.target);
+    messageForm.addEventListener('submit', async function (event) {
+        event.preventDefault();
 
-    // Menggunakan GitHub API untuk membuat commit dengan data formulir
-    fetch('https://api.github.com/AhNode/MyFlowers/contents/feedback.txt', {
-        method: 'GET',
-        headers: {
-            'Authorization': 'Bearer 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'
+        const message = document.getElementById('message').value;
+
+        try {
+            const response = await fetch('/submit-message', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ message }),
+            });
+
+            if (response.ok) {
+                console.log('Pesan berhasil dikirim!');
+                // Tambahkan logika tambahan di sini, misalnya membersihkan formulir atau memberikan pemberitahuan.
+            } else {
+                console.error('Gagal mengirim pesan.');
+            }
+        } catch (error) {
+            console.error('Terjadi kesalahan:', error);
         }
-    })
-    .then(response => response.json())
-    .then(data => {
-        // Mendapatkan konten file feedback.txt
-        console.log(data)
-        const content = atob(data.content);
-
-        // Menambahkan data formulir ke dalam konten
-        formData.forEach((value, key) => {
-            content += `${key}: ${value}\n`;
-        });
-
-        // Mengirim perubahan kembali ke repositori
-        return fetch('https://api.github.com/repos/AhNode/MyFlowers/contents/feedback.txt', {
-            method: 'PUT',
-            headers: {
-                'Authorization': 'Bearer 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',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                message: 'Add new feedback',
-                content: btoa(content),
-                sha: data.sha
-            })
-        });
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Pesan terkirim:', data);
-        // Tambahkan logika atau feedback visual di sini
-    })
-    .catch(error => {
-        console.error('Gagal mengirim pesan:', error);
-        // Tambahkan logika atau feedback visual di sini
     });
 });

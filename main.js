@@ -7,10 +7,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const message = document.getElementById('message').value;
 
         try {
-            const response = await fetch('https://api.github.com/repos/YOUR_GITHUB_OWNER/YOUR_GITHUB_REPO/contents/pesan.txt', {
+            const response = await fetch('https://api.github.com/repos/AhNode/MyFlowers/contents/pesan.txt', {
                 method: 'GET',
                 headers: {
-                    'Authorization': 'Bearer YOUR_GITHUB_TOKEN',
+                    'Authorization': 'Bearer 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',
                 },
             });
 
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const currentContent = atob(data.content); // Decode base64 content.
 
                 // Update file pesan.txt di repositori GitHub.
-                const updateResult = await updateGitHubFile('YOUR_GITHUB_OWNER', 'YOUR_GITHUB_REPO', 'pesan.txt', currentContent + '\n' + message);
+                const updateResult = await updateGitHubFile('AhNode', 'MyFlowers', 'pesan.txt', currentContent + '\n' + message);
 
                 if (updateResult) {
                     console.log('Pesan berhasil dikirim dan file pesan.txt berhasil diupdate!');
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 async function updateGitHubFile(owner, repo, path, content) {
-    const token = 'YOUR_GITHUB_TOKEN';
+    const token = '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';
 
     // Get the latest commit SHA for the file.
     const latestCommitSHA = await getLatestCommitSHA(owner, repo, path);

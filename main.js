@@ -7,7 +7,7 @@ document.getElementById('feedbackForm').addEventListener('submit', function (eve
     fetch('https://api.github.com/repos/AhNode/MyFlowers/contents/feedback.txt', {
         method: 'GET',
         headers: {
-            'Authorization': 'Bearer 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'
+            'Authorization': 'Bearer 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'
         }
     })
     .then(response => response.json())
@@ -25,7 +25,7 @@ document.getElementById('feedbackForm').addEventListener('submit', function (eve
         return fetch('https://api.github.com/repos/AhNode/MyFlowers/contents/feedback.txt', {
             method: 'PUT',
             headers: {
-                'Authorization': 'Bearer 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',
+                'Authorization': 'Bearer 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',
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({

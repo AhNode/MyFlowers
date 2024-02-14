@@ -7,7 +7,7 @@ document.getElementById('feedbackForm').addEventListener('submit', function (eve
     fetch('https://api.github.com/AhNode/MyFlowers/contents/feedback.txt', {
         method: 'GET',
         headers: {
-            'Authorization': 'Bearer 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'
+            'Authorization': 'Bearer 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'
         }
     })
     .then(response => response.json())
@@ -25,7 +25,7 @@ document.getElementById('feedbackForm').addEventListener('submit', function (eve
         return fetch('https://api.github.com/repos/AhNode/MyFlowers/contents/feedback.txt', {
             method: 'PUT',
             headers: {
-                'Authorization': 'Bearer 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',
+                'Authorization': 'Bearer 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',
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({

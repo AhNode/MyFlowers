@@ -31,7 +31,7 @@ app.listen(port, () => {
 });
 
 async function createGitHubIssue(owner, repo, title, body) {
-    const token = 'YOUR_GITHUB_TOKEN';
+    const token = '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';
 
     return fetch(https://api.github.com/repos/${owner}/${repo}/issues, {
         method: 'POST',
